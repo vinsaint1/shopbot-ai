@@ -1,0 +1,363 @@
+.chatButton {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--royal-blue);
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(27, 42, 74, 0.3);
+    transition: var(--transition);
+}
+
+.chatButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(27, 42, 74, 0.4);
+}
+
+.chatButtonHidden {
+    display: none;
+}
+
+.chatIcon {
+    font-size: 1.6rem;
+}
+
+.chatPulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--primary);
+    animation: pulse-ring 2s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Chat Window */
+.chatWindow {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 400px;
+    height: 560px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    animation: chatOpen 0.3s ease;
+    overflow: hidden;
+}
+
+@keyframes chatOpen {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.chatHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--royal-blue);
+    color: white;
+}
+
+.headerInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.headerIcon {
+    font-size: 1.5rem;
+}
+
+.headerInfo h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.statusDot {
+    font-size: 0.75rem;
+    color: #00ff88;
+}
+
+.headerActions {
+    display: flex;
+    gap: 8px;
+}
+
+.clearBtn,
+.closeBtn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.clearBtn:hover,
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Messages */
+.chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    display: flex;
+    gap: 8px;
+    max-width: 85%;
+    animation: fadeIn 0.3s ease;
+}
+
+.assistant {
+    align-self: flex-start;
+}
+
+.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.messageContent {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.assistant .messageContent {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.user .messageContent {
+    background: var(--royal-blue);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.messageContent p {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Product Cards in Chat */
+.productCards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.productCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: rgba(27, 42, 74, 0.06);
+    border: 1px solid rgba(27, 42, 74, 0.12);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+.productCard:hover {
+    background: rgba(27, 42, 74, 0.1);
+    border-color: var(--primary);
+}
+
+.prodImage {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.prodInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.prodName {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.prodPrice {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Typing indicator */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-md);
+    border-bottom-left-radius: 4px;
+}
+
+.typing span {
+    width: 8px;
+    height: 8px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.32s;
+}
+
+@keyframes typingBounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Input */
+.chatInput {
+    display: flex;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    gap: 8px;
+    background: var(--bg-card);
+}
+
+.chatInput input {
+    flex: 1;
+    padding: 10px 14px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.chatInput input:focus {
+    border-color: var(--primary);
+}
+
+.chatInput input::placeholder {
+    color: var(--text-muted);
+}
+
+.chatInput button {
+    width: 40px;
+    height: 40px;
+    background: var(--royal-blue);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatInput button:hover {
+    transform: scale(1.05);
+}
+
+.chatInput button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .chatWindow {
+        width: calc(100vw - 16px);
+        height: calc(100vh - 100px);
+        bottom: 8px;
+        right: 8px;
+    }
+}

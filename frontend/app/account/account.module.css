@@ -1,0 +1,234 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.profileCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    text-align: center;
+    position: sticky;
+    top: 100px;
+}
+
+.profileAvatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.profileCard h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.profileCard p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.ordersSection h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.orderCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.orderCard:hover {
+    border-color: var(--border-hover);
+}
+
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.orderId {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-right: 12px;
+}
+
+.orderDate {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.orderItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.orderItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.orderItemImg {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: var(--bg-secondary);
+}
+
+.moreItems {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.orderFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.orderTotal {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+.tracking {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.orderActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cancelBtn {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid var(--error);
+    border-radius: var(--radius-sm);
+    color: var(--error);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.cancelBtn:hover {
+    background: var(--error);
+    color: white;
+}
+
+.cancelBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.confirmGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.confirmYesBtn {
+    padding: 6px 14px;
+    background: var(--error);
+    border: 1px solid var(--error);
+    border-radius: var(--radius-sm);
+    color: white;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.confirmYesBtn:hover {
+    opacity: 0.85;
+}
+
+.confirmYesBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.confirmNoBtn {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.confirmNoBtn:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profileCard {
+        position: static;
+    }
+}

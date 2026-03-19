@@ -1,0 +1,155 @@
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 32px;
+    align-items: start;
+}
+
+.formSection {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+}
+
+.formSection h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.orderSummary {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    position: sticky;
+    top: 100px;
+}
+
+.orderSummary h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.orderItems {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.orderItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.orderImage {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: var(--bg-secondary);
+}
+
+.orderItemInfo {
+    flex: 1;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderQty {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.orderItemPrice {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.costs {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-bottom: 20px;
+}
+
+.costRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.costTotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    margin-top: 8px;
+    border-top: 1px solid var(--border);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.whatsappBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.whatsappBtn:hover {
+    background: #1ebe57;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsappBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.whatsappIcon {
+    font-size: 1.3rem;
+}
+
+.secureNote {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
