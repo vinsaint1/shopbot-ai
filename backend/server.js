@@ -14,6 +14,7 @@ const orderRoutes = require('./routes/orders');
 const adminRoutes = require('./routes/admin');
 const paymentRoutes = require('./routes/payment');
 const chatbotRoutes = require('./routes/chatbot');
+const seedRoute = require('./routes/seedRoute');
 
 const app = express();
 
@@ -64,6 +65,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/chat', chatLimiter, chatbotRoutes);
+app.use('/api/seed', seedRoute);
 
 // Health check
 app.get('/api/health', (req, res) => {
