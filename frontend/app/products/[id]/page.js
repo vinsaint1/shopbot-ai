@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../lib/api';
@@ -8,13 +9,21 @@ import styles from './detail.module.css';
 
 export default function ProductDetail({ params }) {
     const { id } = use(params);
+    const router = useRouter();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [quantity, setQuantity] = useState(1);
     const [adding, setAdding] = useState(false);
     const [added, setAdded] = useState(false);
     const { addToCart } = useCart();
-    const { user } = useAuth();
+    const { user, loading: authLoading } = useAuth();
+
+    // Auth Protection Check
+    useEffect(() => {
+        if (!authLoading && !user) {
+            router.push('/auth/login');
+        }
+    }, [user, authLoading, router]);
 
     useEffect(() => {
         loadProduct();
@@ -47,6 +56,7 @@ export default function ProductDetail({ params }) {
         }
     };
 
+    if (authLoading || !user) return <div className="page-container"><div className="loading-page"><div className="spinner"></div></div></div>;
     if (loading) return <div className="page-container"><div className="loading-page"><div className="spinner"></div></div></div>;
     if (!product) return <div className="page-container"><div className="empty-state"><h3>Product not found</h3></div></div>;
 

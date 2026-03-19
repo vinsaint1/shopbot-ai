@@ -1,14 +1,24 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { useAuth } from '../context/AuthContext';
 import ProductCard from '../components/ProductCard';
 import api from '../lib/api';
 import styles from './products.module.css';
 
 export default function ProductsContent() {
     const searchParams = useSearchParams();
+    const router = useRouter();
+    const { user, loading: authLoading } = useAuth();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    // Auth Protection Check
+    useEffect(() => {
+        if (!authLoading && !user) {
+            router.push('/auth/login');
+        }
+    }, [user, authLoading, router]);
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState(searchParams.get('category') || '');
     const [sort, setSort] = useState('');
@@ -42,6 +52,10 @@ export default function ProductsContent() {
         setPage(1);
         loadProducts();
     };
+
+    if (authLoading || !user) {
+        return <div className="page-container"><div className="loading-page"><div className="spinner"></div></div></div>;
+    }
 
     return (
         <div className="page-container">
