@@ -21,8 +21,11 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// Security middleware
-app.use(helmet());
+// Security middleware (configured for API usage)
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    contentSecurityPolicy: false,
+}));
 const allowedOrigins = [
     process.env.FRONTEND_URL,
     'http://localhost:3000'

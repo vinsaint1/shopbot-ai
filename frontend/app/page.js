@@ -17,7 +17,8 @@ export default function Home() {
     try {
       const data = await api.getProducts({ featured: 'true', limit: 8 });
       setFeatured(data.products);
-    } catch {
+    } catch (err) {
+      console.error('Failed to load featured products:', err);
     } finally {
       setLoading(false);
     }
