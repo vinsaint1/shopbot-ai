@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import api from '../lib/api';
 import { useAuth } from './AuthContext';
 
@@ -9,9 +9,15 @@ export function CartProvider({ children }) {
     const { user } = useAuth();
     const [cart, setCart] = useState(null);
     const [loading, setLoading] = useState(false);
+    const userRef = useRef(user);
+
+    // Keep ref in sync without causing re-renders
+    useEffect(() => {
+        userRef.current = user;
+    }, [user]);
 
     const fetchCart = useCallback(async () => {
-        if (!user) { setCart(null); return; }
+        if (!userRef.current) { setCart(null); return; }
         try {
             setLoading(true);
             const data = await api.getCart();
@@ -21,11 +27,12 @@ export function CartProvider({ children }) {
         } finally {
             setLoading(false);
         }
-    }, [user]);
+    }, []); // No dependency on user — uses ref instead
 
+    // Fetch cart when user changes
     useEffect(() => {
         fetchCart();
-    }, [fetchCart]);
+    }, [user, fetchCart]);
 
     const addToCart = async (productId, quantity = 1) => {
         const data = await api.addToCart(productId, quantity);
