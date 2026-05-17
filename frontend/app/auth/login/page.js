@@ -57,7 +57,7 @@ export default function LoginPage() {
                 </form>
 
                 <p className={styles.authSwitch}>
-                    Don't have an account? <Link href="/auth/register">Create one</Link>
+                    Don&apos;t have an account? <Link href="/auth/register">Create one</Link>
                 </p>
 
             </div>
