@@ -55,7 +55,9 @@
 }
 
 .statIcon {
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .statCard h3 {

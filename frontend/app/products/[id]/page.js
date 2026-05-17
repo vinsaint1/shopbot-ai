@@ -71,7 +71,7 @@ export default function ProductDetail({ params }) {
                     <span className={styles.category}>{product.category}</span>
                     <h1 className={styles.name}>{product.name}</h1>
                     <div className={styles.metaRow}>
-                        {product.rating > 0 && <span className={styles.rating}>⭐ {product.rating} ({product.numReviews} reviews)</span>}
+                        {product.rating > 0 && <span className={styles.rating}><svg width="14" height="14" viewBox="0 0 24 24" fill="#D4960A" stroke="#D4960A" strokeWidth="1" style={{ marginRight: 4, verticalAlign: '-1px' }}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>{product.rating} ({product.numReviews} reviews)</span>}
                         <span className={product.stock > 0 ? styles.inStock : styles.outStock}>
                             {product.stock > 0 ? `✓ In Stock (${product.stock} left)` : '✕ Out of Stock'}
                         </span>
@@ -92,15 +92,15 @@ export default function ProductDetail({ params }) {
                                 disabled={adding}
                                 style={{ flex: 1 }}
                             >
-                                {added ? '✓ Added to Cart!' : adding ? 'Adding...' : '🛒 Add to Cart'}
+                                {added ? '✓ Added to Cart!' : adding ? 'Adding...' : 'Add to Cart'}
                             </button>
                         </div>
                     )}
 
                     <div className={styles.features}>
-                        <div className={styles.feature}><span>🚚</span> Free shipping on orders over ₦50,000</div>
-                        <div className={styles.feature}><span>↩️</span> 30-day return policy</div>
-                        <div className={styles.feature}><span>🔒</span> Secure checkout</div>
+                        <div className={styles.feature}><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span> Free shipping on orders over ₦50,000</div>
+                        <div className={styles.feature}><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></span> 30-day return policy</div>
+                        <div className={styles.feature}><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> Secure checkout</div>
                     </div>
                 </div>
             </div>

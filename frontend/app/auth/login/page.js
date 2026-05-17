@@ -35,7 +35,7 @@ export default function LoginPage() {
         <div className={styles.authPage}>
             <div className={styles.authCard}>
                 <div className={styles.authHeader}>
-                    <span className={styles.authIcon}>🔐</span>
+                    <span className={styles.authIcon}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--royal-blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
                     <h1>Welcome Back</h1>
                     <p>Sign in to your account</p>
                 </div>

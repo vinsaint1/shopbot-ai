@@ -521,7 +521,9 @@ tr:hover td {
 }
 
 .empty-state-icon {
-  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
   opacity: 0.4;
 }

@@ -70,7 +70,7 @@ export default function Home() {
           <div className={styles.whyContent}>
             <h2 className={styles.whyTitle}>Why Choose Us?</h2>
             <p className={styles.whyText}>
-              Shopping online should be effortless. With our AI-powered assistant, you get personalized product recommendations, instant answers to your questions, and real-time order tracking — all in one seamless experience.
+              Shopping online should be effortless. With our AI-powered assistant, you get personalized product recommendations, instant answers to your questions, and real-time order tracking, all in one seamless experience.
             </p>
             <p className={styles.whyText}>
               We curate only the finest products from trusted brands, backed by secure checkout, fast delivery, and hassle-free returns. Every item is quality-checked so you can shop with complete confidence.
@@ -87,7 +87,8 @@ export default function Home() {
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Best Sellers</h2>
           <Link href="/products" className={styles.viewAllLink}>
-            View All →
+            View All
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: 4 }}><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </Link>
         </div>
         {loading ? (

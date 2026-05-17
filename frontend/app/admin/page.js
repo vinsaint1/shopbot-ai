@@ -86,9 +86,9 @@ export default function AdminDashboard() {
     if (loading) return <div className="page-container"><div className="loading-page"><div className="spinner"></div></div></div>;
 
     const tabs = [
-        { id: 'dashboard', label: '📊 Dashboard' },
-        { id: 'products', label: '📦 Products' },
-        { id: 'orders', label: '🛒 Orders' },
+        { id: 'dashboard', label: 'Dashboard' },
+        { id: 'products', label: 'Products' },
+        { id: 'orders', label: 'Orders' },
     ];
 
     return (
@@ -110,10 +110,10 @@ export default function AdminDashboard() {
             {activeTab === 'dashboard' && stats && (
                 <div className={styles.dashboard}>
                     <div className={styles.statsGrid}>
-                        <div className={styles.statCard}><span className={styles.statIcon}>💰</span><div><h3>₦{stats.totalRevenue?.toLocaleString()}</h3><p>Total Revenue</p></div></div>
-                        <div className={styles.statCard}><span className={styles.statIcon}>🛒</span><div><h3>{stats.totalOrders}</h3><p>Total Orders</p></div></div>
-                        <div className={styles.statCard}><span className={styles.statIcon}>📦</span><div><h3>{stats.totalProducts}</h3><p>Products</p></div></div>
-                        <div className={styles.statCard}><span className={styles.statIcon}>👥</span><div><h3>{stats.totalUsers}</h3><p>Users</p></div></div>
+                        <div className={styles.statCard}><span className={styles.statIcon}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--royal-blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><h3>₦{stats.totalRevenue?.toLocaleString()}</h3><p>Total Revenue</p></div></div>
+                        <div className={styles.statCard}><span className={styles.statIcon}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--royal-blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span><div><h3>{stats.totalOrders}</h3><p>Total Orders</p></div></div>
+                        <div className={styles.statCard}><span className={styles.statIcon}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--royal-blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m16.5 9.4-9-5.19"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><div><h3>{stats.totalProducts}</h3><p>Products</p></div></div>
+                        <div className={styles.statCard}><span className={styles.statIcon}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--royal-blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><h3>{stats.totalUsers}</h3><p>Users</p></div></div>
                     </div>
 
                     <div className={styles.recentSection}>
@@ -159,7 +159,7 @@ export default function AdminDashboard() {
                                         <td>₦{product.price?.toLocaleString()}</td>
                                         <td>{product.category}</td>
                                         <td><span className={product.stock > 0 ? '' : 'badge badge-error'}>{product.stock}</span></td>
-                                        <td>{product.featured ? '⭐' : '—'}</td>
+                                        <td>{product.featured ? <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4960A" stroke="#D4960A" strokeWidth="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> : <span style={{ color: 'var(--text-muted)' }}>—</span>}</td>
                                         <td>
                                             <div style={{ display: 'flex', gap: 8 }}>
                                                 <button className="btn btn-secondary btn-sm" onClick={() => handleEditProduct(product)}>Edit</button>

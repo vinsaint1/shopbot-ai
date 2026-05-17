@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 
 export const metadata = {
-  title: 'ShopbotAi — Step In Style',
+  title: 'ShopbotAi | Step In Style',
   description: 'Curated fashion and lifestyle essentials. Premium quality meets intelligent shopping at ShopbotAi.',
 };
 

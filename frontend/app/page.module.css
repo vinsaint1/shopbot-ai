@@ -185,6 +185,9 @@
 }
 
 .viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 0.85rem;
   color: var(--text-secondary);
   text-decoration: none;
